@@ -249,7 +249,7 @@ public class CircleProgress extends View {
         bundle.putInt(INSTANCE_UNFINISHED_STROKE_COLOR, getUnfinishedColor());
         bundle.putInt(INSTANCE_MAX, getMax());
         bundle.putInt(INSTANCE_MIN, getMin());
-        bundle.putInt(INSTANCE_PROGRESS, getProgress());
+        bundle.putFloat(INSTANCE_PROGRESS, getProgress());
         bundle.putString(INSTANCE_SUFFIX, getSuffixText());
         bundle.putString(INSTANCE_PREFIX, getPrefixText());
         return bundle;
@@ -266,7 +266,7 @@ public class CircleProgress extends View {
             initPainters();
             setMax(bundle.getInt(INSTANCE_MAX));
             setMin(bundle.getInt(INSTANCE_MIN));
-            setProgress(bundle.getInt(INSTANCE_PROGRESS));
+            setProgress(bundle.getFloat(INSTANCE_PROGRESS));
             prefixText = bundle.getString(INSTANCE_PREFIX);
             suffixText = bundle.getString(INSTANCE_SUFFIX);
             super.onRestoreInstanceState(bundle.getParcelable(INSTANCE_STATE));
