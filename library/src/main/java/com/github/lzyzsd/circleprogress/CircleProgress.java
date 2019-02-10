@@ -214,7 +214,7 @@ public class CircleProgress extends View {
     }
 
     @Override protected void onDraw(Canvas canvas) {
-        float yHeight = getProgress() / (float) (getMax() - getMin()) * getHeight();
+        float yHeight = (getProgress() - getMin()) / (float) (getMax() - getMin()) * getHeight();
         float radius = getWidth() / 2f;
         float angle = (float) (Math.acos((radius - yHeight) / radius) * 180 / Math.PI);
         float startAngle = 90 + angle;
