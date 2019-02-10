@@ -102,7 +102,7 @@ public class CircleProgress extends View {
         super.invalidate();
     }
 
-    public int getProgress() {
+    public float getProgress() {
         return progress;
     }
 
