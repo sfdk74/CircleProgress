@@ -43,6 +43,7 @@ public class CircleProgress extends View {
     private static final String INSTANCE_FINISHED_STROKE_COLOR = "finished_stroke_color";
     private static final String INSTANCE_UNFINISHED_STROKE_COLOR = "unfinished_stroke_color";
     private static final String INSTANCE_MAX = "max";
+    private static final String INSTANCE_MIN = "min";
     private static final String INSTANCE_PROGRESS = "progress";
     private static final String INSTANCE_SUFFIX = "suffix";
     private static final String INSTANCE_PREFIX = "prefix";
