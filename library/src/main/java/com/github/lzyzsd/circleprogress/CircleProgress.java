@@ -78,7 +78,7 @@ public class CircleProgress extends View {
         textSize = attributes.getDimension(R.styleable.CircleProgress_circle_text_size, default_text_size);
 
         setMax(attributes.getInt(R.styleable.CircleProgress_circle_max, default_max));
-        setProgress(attributes.getInt(R.styleable.CircleProgress_circle_progress, 0));
+        setProgress(attributes.getFloat(R.styleable.CircleProgress_circle_progress, 0));
 
         if (attributes.getString(R.styleable.CircleProgress_circle_prefix_text) != null) {
             setPrefixText(attributes.getString(R.styleable.CircleProgress_circle_prefix_text));
