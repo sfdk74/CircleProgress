@@ -22,8 +22,9 @@ public class CircleProgress extends View {
 
     private float textSize;
     private int textColor;
-    private int progress = 0;
+    private float progress = 0;
     private int max;
+    private int min;
     private int finishedColor;
     private int unfinishedColor;
     private String prefixText = "";
@@ -105,7 +106,7 @@ public class CircleProgress extends View {
         return progress;
     }
 
-    public void setProgress(int progress) {
+    public void setProgress(float progress) {
         this.progress = progress;
         if (this.progress > getMax()) {
             this.progress %= getMax();
@@ -116,12 +117,21 @@ public class CircleProgress extends View {
     public int getMax() {
         return max;
     }
+    
+    public int getMin() {
+        return min;
+    }
 
     public void setMax(int max) {
         if (max > 0) {
             this.max = max;
             invalidate();
         }
+    }
+    
+    public void setMin(int min) {
+        this.min = min;
+        invalidate();
     }
 
     public float getTextSize() {
@@ -193,7 +203,7 @@ public class CircleProgress extends View {
     }
 
     public float getProgressPercentage() {
-        return getProgress() / (float) getMax();
+        return (getProgress() / (float)(getMax() - getMin()));
     }
 
     @Override
@@ -203,7 +213,7 @@ public class CircleProgress extends View {
     }
 
     @Override protected void onDraw(Canvas canvas) {
-        float yHeight = getProgress() / (float) getMax() * getHeight();
+        float yHeight = getProgress() / (float) (getMax() - getMin()) * getHeight();
         float radius = getWidth() / 2f;
         float angle = (float) (Math.acos((radius - yHeight) / radius) * 180 / Math.PI);
         float startAngle = 90 + angle;
@@ -237,6 +247,7 @@ public class CircleProgress extends View {
         bundle.putInt(INSTANCE_FINISHED_STROKE_COLOR, getFinishedColor());
         bundle.putInt(INSTANCE_UNFINISHED_STROKE_COLOR, getUnfinishedColor());
         bundle.putInt(INSTANCE_MAX, getMax());
+        bundle.putInt(INSTANCE_MIN, getMin());
         bundle.putInt(INSTANCE_PROGRESS, getProgress());
         bundle.putString(INSTANCE_SUFFIX, getSuffixText());
         bundle.putString(INSTANCE_PREFIX, getPrefixText());
@@ -253,6 +264,7 @@ public class CircleProgress extends View {
             unfinishedColor = bundle.getInt(INSTANCE_UNFINISHED_STROKE_COLOR);
             initPainters();
             setMax(bundle.getInt(INSTANCE_MAX));
+            setMin(bundle.getInt(INSTANCE_MIN));
             setProgress(bundle.getInt(INSTANCE_PROGRESS));
             prefixText = bundle.getString(INSTANCE_PREFIX);
             suffixText = bundle.getString(INSTANCE_SUFFIX);
