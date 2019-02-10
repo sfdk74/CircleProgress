@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="CircleProgress">
-        <attr name="circle_progress" format="integer"/>
+        <attr name="circle_progress" format="float"/>
         <attr name="circle_max" format="integer"/>
 
         <attr name="circle_unfinished_color" format="color"/>
