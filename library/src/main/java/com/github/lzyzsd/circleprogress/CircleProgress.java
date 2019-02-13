@@ -204,7 +204,7 @@ public class CircleProgress extends View {
     }
 
     public float getProgressPercentage() {
-        return (getProgress() - getMin()) / (float)(getMax() - getMin()));
+        return ((getProgress() - getMin()) / (float)(getMax() - getMin()));
     }
 
     @Override
