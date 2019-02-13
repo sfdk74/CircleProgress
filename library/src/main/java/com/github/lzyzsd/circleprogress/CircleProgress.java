@@ -34,6 +34,7 @@ public class CircleProgress extends View {
     private final int default_unfinished_color = Color.rgb(204, 204, 204);
     private final int default_text_color = Color.WHITE;
     private final int default_max = 100;
+    private final int default_min = 0;
     private final float default_text_size;
     private final int min_size;
 
@@ -78,6 +79,7 @@ public class CircleProgress extends View {
         textSize = attributes.getDimension(R.styleable.CircleProgress_circle_text_size, default_text_size);
 
         setMax(attributes.getInt(R.styleable.CircleProgress_circle_max, default_max));
+        setMin(attributes.getInt(R.styleable.CircleProgress_circle_min, default_max));
         setProgress(attributes.getFloat(R.styleable.CircleProgress_circle_progress, 0));
 
         if (attributes.getString(R.styleable.CircleProgress_circle_prefix_text) != null) {
